@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  enel_receiver:
+    image: node:17-alpine3.14
+    container_name: enel_receiver
+    working_dir: /usr/src/enel/
+    volumes:
+      - ./codes/:/usr/src/enel/
+    ports:
+      - 4300:4300
+    command: >
+      /bin/sh -c "npm install -g npm@8.9.0
+              npm install -g @angular/cli
+              ng new receiver
+              cd receiver
+              ng serve --host 0.0.0.0 --disable-host-check"
+

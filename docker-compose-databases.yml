@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  microscada_db:
+    image:  mcr.microsoft.com/mssql/server:2017-latest
+    container_name: microscada_db
+    ports:
+      - 1433:1433
+    environment: 
+      - ACCEPT_EULA=yes
+      - SA_PASSWORD=J4gu4r2020
+
+  enel_sender_db:
+    image:  mcr.microsoft.com/mssql/server:2017-latest
+    container_name: enel_sender_db
+    ports:
+      - 1434:1433
+    environment: 
+      - ACCEPT_EULA=yes
+      - SA_PASSWORD=J4gu4r2020

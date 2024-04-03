@@ -1,0 +1,7 @@
+Django~=3.2.10
+pandas
+pydataxm
+django-mssql-backend
+channels
+djangorestframework=3.13.1
+django-cors-headers=3.11.0

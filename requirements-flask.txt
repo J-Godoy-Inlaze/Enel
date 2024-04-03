@@ -1,0 +1,37 @@
+Flask #Flask installation includes followind packages:
+#Werkseug -> implements WSGI, the standard Python interface between applications and servers
+#Jinja -> tempalte language that renders the pages
+#MarkupSafe -> Comes with Jinja
+#ItsDangerous -> Securely signs data to ensure its integrity. This is used to protect Flask's session cookie
+#Click -> A framework for writing command line applications. It provides the flask command and allows adding custom management commands
+
+pyodbc
+flask_sqlalchemy
+flask_migrate
+flask_restful
+flask_marshmallow
+marshmallow-sqlalchemy
+marshmallow-enum
+flask-bcrypt
+flask-jwt-extended
+flask-socketio
+eventlet
+#simple-websocket
+flask-cors
+#flask-httpauth
+
+Flask-APScheduler
+python_dateutil >= 2.8.1
+setuptools >= 21.0.0
+lxml
+pandas==1.4.2
+requests
+pydataxm
+beautifulsoup4
+
+python-dotenv #enables support for Environment Variables From dotenv when running flask commands
+
+#Blinket #provides support for Signals
+Watchdog #provides a faster, more efficient reloader for the development server
+
+

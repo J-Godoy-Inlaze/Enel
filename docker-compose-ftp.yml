@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  xm_mock_ftp:
+    image: stilliard/pure-ftpd
+    container_name: xm_mock_ftp
+    volumes:
+      - ./mock-ftp/data:/home/xm
+      - ./mock-ftp/passwd:/etc/pure-ftpd/passwd
+# uncomment for ssl/tls, see https://github.com/stilliard/docker-pure-ftpd#tls
+#      - "/folder_on_disk/ssl:/etc/ssl/private/"
+# or ssl/tls with Let's Encrypt (cert and key as two files)
+#      - "/etc/letsencrypt/live/<your_server>/cert.pem:/etc/ssl/private/pure-ftpd-cert.pem"
+#      - "/etc/letsencrypt/live/<your_server>/privkey.pem:/etc/ssl/private/pure-ftpd-key.pem
+    ports:
+      - 21:21
+      - "30000-30009:30000-30009"
+    environment: 
+      - PUBLICHOST=localhost
+      - FTP_USER_NAME=xm
+      - FTP_USER_PASS=J4gu4r2020
+      - FTP_USER_HOME=/home/xm
+# also for ssl/tls:
+#      ADDED_FLAGS: "--tls=2"
+    restart: always

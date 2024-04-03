@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  enel_sender:
+    image: python:3.9.13-bullseye
+    container_name: enel_sender
+    command: >
+      sh -c "curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+             curl https://packages.microsoft.com/config/debian/11/prod.list > /etc/apt/sources.list.d/mssql-release.list
+             apt-get update &&
+             ACCEPT_EULA=Y apt-get install -y msodbcsql17 &&
+             apt install unixodbc-dev && 
+             pip install --upgrade pip && cd /usr/src/enel && 
+             pip install --no-cache-dir -r requirements-flask.txt &&
+             cd /usr/src/enel/codes/sender && ./run-server.sh"
+    working_dir: /usr/src/enel/
+    volumes:
+      - ./:/usr/src/enel/
+    ports:
+      - 8000:8000
+    environment: 
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+      - TZ=America/Bogota
+    env_file:
+      - ./.env.dev
